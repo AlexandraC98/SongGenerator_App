@@ -1,0 +1,158 @@
+html, body {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0px;
+    background-color: rgb(232, 248, 246);
+    font-style: "Lucinda Console", monospace;
+}
+
+.index_body {
+    position: relative; /* Ensure the content inside is positioned relative to the slider */
+    z-index: 1;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    flex-direction: column; /* Aligns child elements vertically */
+}
+
+h1 {
+    text-align: center;
+    font-size: 60px;
+}
+
+.index_title {
+    color: rgb(231, 236, 235);
+}
+
+p, ol {
+    text-align: center;
+    font-size: 30px;
+}
+
+ol {
+    list-style: decimal;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center list items horizontally */
+}
+
+li {
+    text-align: center;
+    margin-bottom: 20px; /* Add spacing between list items */
+    max-width: 800px; /* Optional: Limit width of list items */
+}
+
+.trackartist {
+    margin: 0; /* Adjust spacing as needed */
+}
+
+img {
+    max-width: 70%; /* Ensure images do not overflow their container */
+    height: auto;
+}
+
+form {
+    position: relative;
+    z-index: 1; /* Ensure form is on top of the background image */
+    padding: 20px;
+    background: rgba(232, 248, 246, 0.8); /* Optional: make form background semi-transparent */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.index_form {
+    background: rgba(134, 135, 136, 0.5);
+    color: rgb(231, 236, 235);
+}
+
+button {
+    box-sizing: border-box;
+    padding: 16px 32px; /* Increase padding for a larger button */
+    font-size: 20px; /* Larger font size */
+    width: 100px; /* Set a fixed width */
+    height: 60px; /* Set a fixed height */
+    line-height: 60px; /* Align text vertically */
+    border-radius: 20px; /* Adjust border-radius for rounded corners */
+    align-items: center;
+    display: inline-flex;
+    cursor: pointer;
+    background-color: rgb(233, 235, 234, 0.5);
+    color: black; 
+    border: 1px solid #292a2a;
+}
+
+button:hover {
+    background-color: rgb(233, 235, 234, 0.5);
+    color: black; 
+    border: 3px solid #292a2a;
+}
+
+.index_button {
+    color: rgb(231, 236, 235);
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0; /* Ensure slider is behind the content */
+  }
+  
+  .slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: slide 10s infinite;
+  }
+  
+
+.slider .slide:nth-child(1) {
+    background-image: url("https://images.unsplash.com/photo-1485579149621-3123dd979885?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bXVzaWMlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww");
+    animation-delay: 0;
+  }
+  
+  .slider .slide:nth-child(2) {
+    background-image: url("https://images.unsplash.com/photo-1668028707825-eac184e9f664?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fG11c2ljJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D");
+    animation-delay: -2s;
+  }
+  
+  .slider .slide:nth-child(3) {
+    background-image: url("https://images.unsplash.com/photo-1461784229652-c9271a46d4c4?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fG11c2ljJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D");
+    animation-delay: -4s;
+  }
+  
+  .slider .slide:nth-child(4) {
+    background-image: url("https://images.unsplash.com/photo-1471614654469-512ee6a4397a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fG11c2ljJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D");
+    animation-delay: -6s;
+  }
+  
+  .slider .slide:nth-child(5) {
+    background-image: url("https://images.unsplash.com/photo-1450859018738-29f67b1a6102?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fG11c2ljJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D");
+    animation-delay: -8s;
+  }
+
+@keyframes slide {
+    0%, 15%, 100% {
+      transform: translateX(0);
+      animation-timing-function: ease;
+    }
+    20% {
+      transform: translateX(-100%);
+      animation-timing-function: step-end;
+    }
+    95% {
+      transform: translateX(100%);
+      animation-timing-function: ease;
+    }
+   }

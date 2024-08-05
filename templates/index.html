@@ -1,0 +1,41 @@
+<html>
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Spotify Tracks </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+  </head>
+
+
+  <body>
+
+    <div class = "index_body">
+
+        <br><br>
+        <h1 class="index_title"> Get the tracks you need from the years you want! </h1>
+
+        <form method="GET" action="/" class="index_form">
+        
+        <p> Enter year: <input type="number" placeholder="YYYY" min="1950" max="2024" name="year"> </p>
+        
+        <button type="submit" class="index_button"> Go </button>
+        
+        </form>
+
+    </div> 
+
+
+    <div class="slider">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+    <div>
+
+  </body>
+
+</html>

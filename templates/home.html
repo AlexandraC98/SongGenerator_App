@@ -1,0 +1,79 @@
+<html>
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Spotify Tracks </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        let currentAudio = null;
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Attach event listeners to all audio elements
+            const audios = document.querySelectorAll("audio");
+            audios.forEach(audio => {
+                audio.addEventListener("play", function() {
+                    if (currentAudio && currentAudio !== audio) {
+                        currentAudio.pause(); // Pause the currently playing audio
+                    }
+                    currentAudio = audio; // Set the new audio to current
+                });
+            });
+        });
+    </script>
+
+  </head>
+
+
+  <body>
+
+    <div class = "home_body">
+
+        <br><br>
+        <h1> Get the tracks you need from the years you want! </h1>
+        
+
+        <form method="GET" action="/">
+        
+        <p> Enter year: <input type="number" placeholder="YYYY" min="1950" max="2024" name="year"> </p>
+        
+        <button type="submit"> Go </button>
+        
+        </form>
+
+        <br><br>
+
+        <ol>
+
+            {% for track in tracks %}
+            <li> 
+                <strong> <em> {{track.name}} </em> </strong>
+
+                <p class = "trackartist"> {{track.artist}} </p>
+
+                <p>
+                    {% if track.preview_url %}
+                    <audio id="audio-{{ loop.index }}" controls>
+                        <source src="{{track.preview_url}}" type="audio/mpeg">
+                    </audio>
+                    {% endif %}
+                </p>
+
+                <p> <img src="{{track.images}}" alt="{{ track.name }}"> </p>
+
+                <br><br>
+
+            </li>
+
+            {% else %}
+            <li> No tracks found. </li>
+            {% endfor %}
+
+        </ol>
+
+    </div>
+
+  </body>
+
+</html>
